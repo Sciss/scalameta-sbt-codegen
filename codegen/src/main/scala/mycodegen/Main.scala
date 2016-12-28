@@ -2,7 +2,6 @@ package mycodegen
 
 import java.io.File
 import java.nio.file.Files
-import scala.meta._
 
 object Main {
   def main(args: Array[String]): Unit = {
@@ -13,12 +12,12 @@ object Main {
         // Do scala.meta code gene
         Files.write(
           jfile.toPath,
-          source"""package mycodegen
+          """package mycodegen
                    object Generated {
                      val msg = "Hello world!"
                      println(msg)
                    }
-                   """.syntax.getBytes("UTF-8")
+                   """.getBytes("UTF-8")
         )
     }
   }
